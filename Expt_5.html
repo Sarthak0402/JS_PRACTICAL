@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <style>
+
+
+    body{
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+  <h2>Rajashree Sonanis : 42364</h2>
+  <h1>Expt 5 : Timer</h1>
+
+  <label for="datetimeInput">Enter date and time:</label>
+  <input type="datetime-local" id="datetimeInput" required> </br><br>
+
+  <button onclick="startCountdown()">Start Countdown</button>
+
+
+  <h2 id="countdown"> </h2>
+
+  <script>
+      function startCountdown() {
+        const datetimeInput = document.getElementById('datetimeInput').value;
+        if (!datetimeInput) {
+          alert('Please enter a valid date and time.');
+          return;
+        }
+
+        const targetDate = new Date(datetimeInput);
+
+        if (targetDate <= new Date()) {
+          alert('Please enter a future date and time.');
+          return;
+        }
+
+        const countdownElement = document.getElementById('countdown');
+        const countdownInterval = setInterval(()=>{
+          const now = new Date();
+          const timeDifference = targetDate - now;
+
+          if (timeDifference <= 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "Time Over"
+            return;
+          }
+
+          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+          countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        , 1000);
+      }
+
+  </script>
+  </center>
+</body>
+</html>

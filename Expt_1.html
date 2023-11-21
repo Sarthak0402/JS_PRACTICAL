@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="script.js"></script> -->
+    <title>Expt_1</title>
+</head>
+<body>
+    <h3>Rajashree Sonanis_42364</h3>
+    <h2>Area Calculator</h2>
+    <div>
+        <h3>Triangle</h3>
+        <label>Side 1</label>
+        <input type="number" id="side1" > </br>
+
+        <label>Side 2</label>
+        <input type="number" id="side2" > </br>
+
+        <label>Side 3</label>
+        <input type="number" id="side3" > </br>
+
+        <button onclick="triangle()">Calculate</button>
+
+        <p>Area of Triangle = <span id="triangle"></span></p>
+    </div>
+
+    <div>
+        <h3>Circle</h3>
+        <label>Radius</label>
+        <input type="number" id="radius"  size="18" onfocus="this.value=''">
+        <br><br>
+
+        <button onclick="circle()">Calculate</button> </br>
+
+        <p>Area of Circle = <span id="circle"></span></p>
+    </div>
+
+
+    <div>
+        <h3>Rectangle</h3>
+        <label for="Length">Length</label>
+        <input type="number" id="length"  size="18" onfocus="this.value=''"> </br>
+
+        <label for="width">Width</label>
+        <input type="number" id="width"  size="18" onfocus="this.value=''"> </br>
+
+        <button onclick="rectangle()">Calculate</button> </br>
+
+        <p>Area of Rectangle = <span id="rectangle"></span></p> </br>
+    </div>
+    <script>
+        function triangle()
+        {
+            var s1 = parseFloat(document.getElementById("side1").value);
+            var s2 = parseFloat(document.getElementById("side2").value);
+            var s3 = parseFloat(document.getElementById("side3").value);
+
+            var sum = (s1+s2+s3)/2;
+            var area = Math.sqrt(sum*((sum-s1)*(sum-s2)*(sum-s3)));
+            if (s1>0 && s2> 0 && s3>0){
+                if(s1+s2 > s3 && s1+s3>s2 && s2+s3>s1){
+                    if (area > 0){
+                        document.getElementById("triangle").innerHTML = area.toFixed(2);
+                    }else{
+                        document.getElementById("triangle").innerHTML = "Invalid Input";
+                    }
+                }
+                else{
+                    document.getElementById("triangle").innerHTML = "Incorrect input";
+                }
+            }
+            else{
+                document.getElementById("triangle").innerHTML = "Invalid Input";
+            }
+
+
+        }
+
+        function rectangle()
+        {
+            var s1 = parseFloat(document.getElementById("length").value);
+            var s2 = parseFloat(document.getElementById("width").value);
+            if(s1 >0 && s2 >0){
+                var area = s1*s2;
+                document.getElementById("rectangle").innerHTML = area.toFixed(2);
+            }
+            else{
+                document.getElementById("rectangle").innerHTML = "Invalid Input";
+            }
+
+        }
+
+        function circle()
+        {
+            var r = parseFloat(document.getElementById("radius").value);
+            if(r > 0){
+                var area = (22/7)*r*r;
+                document.getElementById("circle").innerHTML = area.toFixed(2);
+            }else{
+                document.getElementById("circle").innerHTML = "Invalid Input";
+            }
+        }
+
+        // window.onload = function() {
+        //     document.getElementById('side1').value = '';
+        //     document.getElementById('side2').value = '';
+        //     document.getElementById('side3').value = '';
+        //     document.getElementById('length').value = '';
+        //     document.getElementById('width').value = '';
+        //     document.getElementById('radius').value = '';
+        //     }
+
+    </script>
+</body>
+</html>

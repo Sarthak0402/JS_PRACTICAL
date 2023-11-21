@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html>
+<script src="assign4.js"></script>
+
+<center>
+    <h1>String Comparison </h1>
+</center>
+
+<body>
+    <center>
+        <h2>Rajashree Sonanis</h2>
+        <h3>42364</h3>
+        Enter First String : <input type="text" id="str1"></inputtype>
+        <br><br>
+        Enter Second String : <input type="text" id="str2"></inputtype>
+        <br><br>
+        <hr>
+        <!-- LocaleCompare -->
+        <h3>Using LocaleCompare</h3>
+        <button onclick="compLocale()">Compare Using (Locale Compare)</button>
+        <p id="output1"></p>
+        <hr>
+
+        <!-- Length & == Operator -->
+        <h3> Using Length & == Operator</h3>
+        <button onclick="compEqEq()">Compare (Using ==)</button>
+        <p id="output2"></p>
+        <p id="output3"></p>
+        <hr>
+
+        <!-- === Operator -->
+        <h3> Using === Operator</h3>
+        <button onclick="compEqEqEq()">Compare (Using ===)</button>
+        <p id="output4"></p>
+        <hr>
+
+        <!-- Custom String Comparison -->
+        <h3>User defined String Comparison</h3>
+        <button onclick="customStringComparison()">Compare (Custom)</button>
+        <p id="output5"></p>
+    </center>
+</body>
+
+</html>
