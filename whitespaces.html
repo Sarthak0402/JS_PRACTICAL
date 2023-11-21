@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitespace Counter</title>
+</head>
+<body>
+
+<h1>Whitespace Counter</h1>
+
+<label for="sentenceInput">Enter a sentence:</label>
+<input type="text" id="sentenceInput" placeholder="Type your sentence here">
+
+<button onclick="countWhitespaces()">Count Whitespaces</button>
+
+<p id="result"></p>
+
+<script>
+function countWhitespaces() {
+  // Get the input value
+  const sentence = document.getElementById("sentenceInput").value;
+
+  // Count the number of whitespaces using a regular expression
+  const whitespaceCount = (sentence.match(/\s/g) || []).length;
+
+  // Display the result
+  document.getElementById("result").innerText = Number of whitespaces: ${whitespaceCount};
+}
+</script>
+
+</body>
+</html>
